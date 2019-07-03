@@ -10,6 +10,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Sprite)
     wheel: cc.Sprite = null;
 
+    @property(cc.Label)
+    score: cc.Label = null;
+
 
     // LIFE-CYCLE CALLBACKS:
 
@@ -36,8 +39,10 @@ export default class NewClass extends cc.Component {
         cc.log("Random num: ", rnum);
 
         let anim = this.wheel.getComponent(cc.Animation);
-        let animName = 'wheel-'+rnum;
-        cc.log("Trying play: ", animName);
+        let animName = 'wheel-' + rnum;
         anim.play(animName);
+        
+        let newScore = Number(this.score.string.split(' ')[1]) + rnum;
+        this.score.string = 'Score: ' + newScore;
     }
 }
