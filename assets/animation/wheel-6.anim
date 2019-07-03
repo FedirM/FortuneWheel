@@ -1,9 +1,9 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "wheel-1",
+  "_name": "wheel-6",
   "_objFlags": 0,
   "_native": "",
-  "_duration": 6.95,
+  "_duration": 4.966666666666667,
   "sample": 60,
   "speed": 1,
   "wrapMode": 1,
@@ -27,20 +27,16 @@
           "value": -270
         },
         {
-          "frame": 2.3666666666666667,
+          "frame": 2.566666666666667,
           "value": -360
         },
         {
-          "frame": 3.85,
+          "frame": 4.166666666666667,
           "value": -540
         },
         {
-          "frame": 5.1,
-          "value": -630
-        },
-        {
-          "frame": 6.95,
-          "value": -720
+          "frame": 4.966666666666667,
+          "value": -602
         }
       ]
     }
