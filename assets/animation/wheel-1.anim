@@ -48,7 +48,7 @@
   "events": [
     {
       "frame": 6.983333333333333,
-      "func": "",
+      "func": "AnimationFinished",
       "params": []
     }
   ]

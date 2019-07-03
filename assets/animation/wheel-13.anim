@@ -3,7 +3,7 @@
   "_name": "wheel-13",
   "_objFlags": 0,
   "_native": "",
-  "_duration": 3.9,
+  "_duration": 3.966666666666667,
   "sample": 60,
   "speed": 1,
   "wrapMode": 1,
@@ -41,5 +41,11 @@
       ]
     }
   },
-  "events": []
+  "events": [
+    {
+      "frame": 3.966666666666667,
+      "func": "AnimationFinished",
+      "params": []
+    }
+  ]
 }

@@ -1,3 +1,5 @@
+// import { setUserScore } from "../../server/db/db";
+// import { read } from "fs";
 
 const {ccclass, property} = cc._decorator;
 
@@ -6,6 +8,9 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Sprite)
     background: cc.Sprite = null;
+
+    @property(cc.Button)
+    btn: cc.Button = null;
 
     @property(cc.Sprite)
     wheel: cc.Sprite = null;
@@ -17,10 +22,23 @@ export default class NewClass extends cc.Component {
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        let buttonLocation = "Canvas/btn";
-        let nodeButton = cc.find(buttonLocation).getComponent(cc.Button);
+        // let buttonLocation = "Canvas/btn";
+        // let nodeButton = cc.find(buttonLocation).getComponent(cc.Button);
 
-        nodeButton.node.on(cc.Node.EventType.TOUCH_START.toString(), this.onSpinClicked, this);
+        this.btn.node.on(cc.Node.EventType.TOUCH_START.toString(), this.onSpinClicked, this);
+
+        let req = cc.loader.getXMLHttpRequest();
+        req.open("GET", 'localhost:3000/segments');
+        req.setRequestHeader("Content-Type","application/json;charset=UTF-8");
+		req.onreadystatechange = () => {
+			if (req.readyState == 4 && req.response != undefined){
+                JSON.parse(req.response).seg.forEach((elem, id) => {
+                    let lbl = this.wheel.node.getChildByName('label-' + (id+1)).getComponent(cc.Label);
+                    lbl.string = '' + elem;
+                });
+            }
+        }
+        req.send();
     }
 
     start () {
@@ -35,14 +53,50 @@ export default class NewClass extends cc.Component {
     }
 
     onSpinClicked(event){
-        let rnum = Math.round(Math.random() * (17 - 1) + 1);
-        cc.log("Random num: ", rnum);
+        if(this.btn != null){
+            this.btn.interactable = false;
+            // this.btn.enabled = false;
+        }
 
-        let anim = this.wheel.getComponent(cc.Animation);
-        let animName = 'wheel-' + rnum;
-        anim.play(animName);
+        let request = cc.loader.getXMLHttpRequest();
+        request.open("POST", "localhost:3000/spin", true);
+		request.setRequestHeader("Content-Type","application/json;charset=UTF-8");
+		request.onreadystatechange = () => {
+			if (request.readyState == 4 && request.response != undefined) {
+                let rnum = Number(JSON.parse(request.response).rnum);
+                cc.log("Curr rnum: ", rnum);
+                
+                let anim = this.wheel.getComponent(cc.Animation);
+                let animName = 'wheel-' + rnum;
+                anim.play(animName);
+
+                this.updateScore();
+			}
+		};
+		request.send();
+
         
-        let newScore = Number(this.score.string.split(' ')[1]) + rnum;
-        this.score.string = 'Score: ' + newScore;
+    }
+
+    updateScore(){
+        let request = cc.loader.getXMLHttpRequest();
+        request.open("GET", "localhost:3000/score", true);
+		request.setRequestHeader("Content-Type","application/json;charset=UTF-8");
+		request.onreadystatechange = () => {
+			if (request.readyState == 4 && request.response != undefined) {
+                let resVal = Number(JSON.parse(request.response).score);
+                cc.log("Curr score: ", resVal);
+                if( resVal >= 1000 ){
+                    if( resVal >= 1000000 ){
+                        this.score.string = 'Score: ' + (resVal / 1000000) + 'm';
+                    } else {
+                        this.score.string = 'Score: ' + (resVal / 1000) + 'k';
+                    }
+                } else {
+                    this.score.string = 'Score: ' + resVal;
+                }
+			}
+		};
+		request.send();
     }
 }

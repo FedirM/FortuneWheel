@@ -3,7 +3,7 @@
   "_name": "wheel-9",
   "_objFlags": 0,
   "_native": "",
-  "_duration": 5.333333333333333,
+  "_duration": 5.366666666666666,
   "sample": 60,
   "speed": 1,
   "wrapMode": 1,
@@ -41,5 +41,11 @@
       ]
     }
   },
-  "events": []
+  "events": [
+    {
+      "frame": 5.366666666666666,
+      "func": "AnimationFinished",
+      "params": []
+    }
+  ]
 }
