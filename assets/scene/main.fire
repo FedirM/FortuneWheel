@@ -405,7 +405,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Spine",
+    "_name": "btn",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -2300,7 +2300,52 @@
     "_defaultClip": null,
     "_clips": [
       {
-        "__uuid__": "8612a09a-6b3b-4a54-8f95-9d3a065c7046"
+        "__uuid__": "0e137e8a-11a2-4930-b45c-f3ea0303192f"
+      },
+      {
+        "__uuid__": "4f014198-6c29-4c1b-9994-7da3efb751b3"
+      },
+      {
+        "__uuid__": "9e8b6a6d-1552-4eda-8a9d-b8daac28018e"
+      },
+      {
+        "__uuid__": "1bc7504a-04a2-4300-a4bf-f0612012f0a6"
+      },
+      {
+        "__uuid__": "4ef371c1-7349-4da2-998b-41415401ec7d"
+      },
+      {
+        "__uuid__": "8432fedf-f43b-4afc-b648-ad8f465af5aa"
+      },
+      {
+        "__uuid__": "c541449f-f310-4906-bc45-d53ef1d79704"
+      },
+      {
+        "__uuid__": "d09874f5-1577-4d97-af6f-f822d6c8d511"
+      },
+      {
+        "__uuid__": "34b581e9-bff4-46c2-a567-5f74136fb993"
+      },
+      {
+        "__uuid__": "653a4c49-5359-4770-881e-cefb2e0de307"
+      },
+      {
+        "__uuid__": "8ac13b1f-5f70-43ec-8ee6-6d6337644b7d"
+      },
+      {
+        "__uuid__": "29dc0eda-0fa9-451e-bd1f-b800a2e4ab55"
+      },
+      {
+        "__uuid__": "e8f9b48b-7e9f-4ca4-9f8e-76c8f6544c9f"
+      },
+      {
+        "__uuid__": "0dd3919e-1cef-4f1c-a6b7-7728a6e45dae"
+      },
+      {
+        "__uuid__": "d5bab808-f890-4d16-af6e-1f399c8309f3"
+      },
+      {
+        "__uuid__": "85a3de99-04bb-4f0c-8542-7d7cd603037f"
       }
     ],
     "playOnLoad": false,
@@ -2333,6 +2378,9 @@
     "_enabled": true,
     "background": {
       "__id__": 6
+    },
+    "wheel": {
+      "__id__": 49
     },
     "_id": "3bPYfcvOpMoIgKtplJlzHz"
   }
